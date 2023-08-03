@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define endl "\n"
 #define int long long int
 #define vi vector<int>
 #define vvi vector<vector<int>>
