@@ -9,7 +9,7 @@ using namespace std;
 #define vs vector<string>
 #define pi pair<int, int>
 #define si set<int>
-#define rep(var, l, r) for (int var = l, var < r; var++)
+#define rep(var, l, r) for (int var = l; var < r; var++)
 
 
 void solve() {
