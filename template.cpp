@@ -5,6 +5,7 @@ using namespace std;
 #define vi vector<int>
 #define vvi vector<vector<int>>
 #define vb vector<bool>
+#define vs vector<string>
 #define pi pair<int, int>
 #define si set<int>
 #define rep(var, l, r) for (int var = l, var < r; var++)
