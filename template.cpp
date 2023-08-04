@@ -3,6 +3,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define pb push_back
+#define all(v) v.begin(), v.end()
+#define sz(a) (int)a.size()
 #define M 1e9+7
 #define endl "\n"
 #define int long long int
