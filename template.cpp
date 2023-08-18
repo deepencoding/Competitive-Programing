@@ -37,6 +37,7 @@ using namespace std;
 #define   ldzrobits(x)         __builtin_clzll(x)
 #define   trzrobits(x)         __builtin_ctzll(x)
 #define   parity(x)            __builtin_parityll(x) // Returns 1 if the number has odd parity else it returns 0
+#define   watch(x)             cerr << "\n" << (#x) << " is " << (x) << endl // print a var to stderr stream (invis to ONLINE JUDGE)
 
 
 void solve() {
