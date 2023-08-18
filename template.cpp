@@ -6,7 +6,7 @@ using namespace std;
 #define   pb                   push_back
 #define   float                long double
 #define   all(v)               v.begin(), v.end()
-#define   sz(a)                (int)a.size()
+#define   sz(a)                (int)(a).size()
 #define   M                    1e9+7
 #define   inf                  1e18
 #define   endl                 "\n"
