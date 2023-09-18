@@ -37,8 +37,8 @@ using namespace std;
 #define   pqmin                priority_queue<int,vi,greater<int>> // min heap
 
 // Functionality
-#define   rep(var, l, r)       for (int var = l; var < r; var++) // Not inclusive on the right side
-#define   revrep(var, r, l)    for (int var = r; var >= l; var--) // Inclusive
+#define   rep(var, l, r)       for (int var = l; var < r; var++) // (i, 0, n) Not inclusive on the right side
+#define   revrep(var, r, l)    for (int var = r; var >= l; var--) // (i, n, 0) Inclusive
 #define   setbits(x)           __builtin_popcountll(x)
 #define   zerobits(x)          __builtin_ctzll(x)
 #define   ldzrobits(x)         __builtin_clzll(x)
