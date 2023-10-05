@@ -46,12 +46,34 @@ using namespace std;
 #define   parity(x)            __builtin_parityll(x) // Returns 1 if the number has odd parity else it returns 0
 #define   watch(x)             cerr << "\n" << (#x) << " is " << (x) << endl // print a var to stderr stream (invis to ONLINE JUDGE)
 
+// Overloaded Operators
+//Operator overload << (std::cout)
+template <typename T>
+ostream& operator<<(ostream& os, const vector<T>& v){
+    for(unsigned i = 0; i < v.size(); i++){
+        os << v[i];
+        if (i != v.size()-1)
+            os << " ";
+    }
+    return os;
+}
+
+//Operator overload >> (std::cin)
+template <typename T>
+std::istream &operator>>(std::istream &is, std::vector<T> &v){
+    for(unsigned i =0;i < v.size();i++)
+    {
+        in >> v[i];
+    }
+    return in;
+}
+
 // Solution
 void solve() {
     int n, k;
     cin >> n >> k;
     vi a(n);
-    rep (i, 0, n) cin >> a[i];
+    cin >> a;
     
     
 }
