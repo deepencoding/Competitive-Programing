@@ -39,33 +39,55 @@ using namespace std;
 // Functionality
 #define   rep(var, l, r)       for (int var = l; var < r; var++) // (i, 0, n) Not inclusive on the right side
 #define   revrep(var, r, l)    for (int var = r; var >= l; var--) // (i, n, 0) Inclusive
-#define   setbits(x)           __builtin_popcountll(x)
-#define   zerobits(x)          __builtin_ctzll(x)
-#define   ldzrobits(x)         __builtin_clzll(x)
-#define   trzrobits(x)         __builtin_ctzll(x)
-#define   parity(x)            __builtin_parityll(x) // Returns 1 if the number has odd parity else it returns 0
+#define   setbits(x)           __builtin_popcountll(x) // count number of set bits
+#define   zerobits(x)          __builtin_ctzll(x) // count number of zero bits
+#define   ldzrobits(x)         __builtin_clzll(x) // count number of leading zero bits
+#define   trzrobits(x)         __builtin_ctzll(x) // count number of trailing zero bits
+#define   parity(x)            __builtin_parityll(x) // Returns 1 if the number has odd parity (odd number of set bits) else it returns 0
 #define   watch(x)             cerr << "\n" << (#x) << " is " << (x) << endl // print a var to stderr stream (invis to ONLINE JUDGE)
+#define   rng_init             mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+#define   rng_seed(x)          mt19937 rng(x); // generate random numbers
+
+template<typename S, typename T> void smax(S& a, const T& b) { if (a < b) a = b; }
+template<typename S, typename T> void smin(S& a, const T& b) { if (a > b) a = b; }
 
 // Overloaded Operators
-//Operator overload << (std::cout)
+
+// Operator overload << (std::cout)
 template <typename T>
 ostream& operator<<(ostream& os, const vector<T>& v){
     for(unsigned i = 0; i < v.size(); i++){
+        os << "{ ";
         os << v[i];
         if (i != v.size()-1)
             os << " ";
     }
+    os << " }";
     return os;
 }
 
-//Operator overload >> (std::cin)
+template<typename A, typename B>
+ostream& operator<<(ostream &os, const pair<A, B> &p) {
+    return os << '(' << p.first << ", " << p.second << ')';
+}
+
+// Debug
+void dbg_out() { cerr << endl; }
+template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; dbg_out(T...); }
+#ifdef LOCAL
+#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+#else
+#define dbg(...)
+#endif
+
+// Operator overload >> (std::cin)
 template <typename T>
 std::istream &operator>>(std::istream &is, std::vector<T> &v){
     for(unsigned i =0;i < v.size();i++)
     {
-        in >> v[i];
+        is >> v[i];
     }
-    return in;
+    return is;
 }
 
 // Solution
