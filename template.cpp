@@ -1,7 +1,10 @@
 // deepencoding
 
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+
 using namespace std;
+using namespace __gnu_pbds;
 
 // Macros
 
@@ -19,10 +22,13 @@ using namespace std;
 #define   vi                   vector<int>
 #define   mii                  map<int,int>
 #define   mmii                 multimap<int,int>
-#define   umii                 unordered_map<int,int>
+#define   umii                 gp_hash_table<int,int,chash> // instead of unordered_map for better performance
+#define   umivi                gp_hash_table<int,vector<int>,chash> // instead of unordered_map for better performance
+#define   umpi                 gp_hash_table<pii,int,chash> // instead of unordered_map for better performance
 #define   mci                  map<char,int>
 #define   mmci                 multimap<char,int>
-#define   umci                 unordered_map<char,int>
+#define   umci                 gp_hash_table<char,int,chash> // instead of unordered_map for better performance
+#define   umcvi                gp_hash_table<char,vector<int>,chash> // instead of unordered_map for better performance
 #define   vvi                  vector<vector<int>>
 #define   vb                   vector<bool>
 #define   vs                   vector<string>
@@ -52,6 +58,33 @@ template<typename S, typename T> void smax(S& a, const T& b) { if (a < b) a = b;
 template<typename S, typename T> void smin(S& a, const T& b) { if (a > b) a = b; }
 
 // Overloaded Operators
+
+// Custom Hashes
+struct chash {
+    static uint64_t splitmix64(uint64_t x) {
+        // http://xorshift.di.unimi.it/splitmix64.c
+        x += 0x9e3779b97f4a7c15;
+        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+        return x ^ (x >> 31);
+    }
+
+
+
+    size_t operator()(int x) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64(x + FIXED_RANDOM);
+    }
+    size_t operator()(char x) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64((uint64_t)x + FIXED_RANDOM);
+    }
+    size_t operator()(pii x) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64((uint64_t)(x.first* 31 + x.second) + FIXED_RANDOM);
+    }
+};
+
 
 // Operator overload << (std::cout)
 template <typename T>
@@ -96,6 +129,7 @@ void solve() {
     cin >> n >> k;
     vi a(n);
     cin >> a;
+    
     
     
 }
